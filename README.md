@@ -9,6 +9,8 @@ La prueba técnica consiste en desarrollar una pequeña aplicación con las sigu
 * Dicha información se deberá enviar en tiempo real usando Firebase Real Time Database.
 * Se da por entendido que la función de emisor y receptor es una sola aplicación, la función se ve definida por la selección en el tab superior como se muestra en la siguiente imagen.
 
+![Views](https://github.com/urbvantransit/mobile-test/blob/master/views.png?raw=true)
+
 ## Consideraciones generales
 
 - Se deberá escribir un README en donde se describa las tareas que se llevaron a cabo para desarrollar la prueba.

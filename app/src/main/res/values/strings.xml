@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Urbvan mobile test</string>
     <string name="google_maps_key">AIzaSyBKYHVDvJysre-AcAWThrr-ofuThhO_5pE</string>
-    <string name="keep_press_to_send">Mantén presionado durante 3 segundos para enviar tu ubicación</string>
+    <string name="keep_press_to_send">Mantén presionado para enviar tu ubicación</string>
     <string name="toolbar_title">Location Sender</string>
     <string name="location_sended">La ubicación ha sido enviada</string>
     <string name="error_message">Ocurrió un error inesperado</string>

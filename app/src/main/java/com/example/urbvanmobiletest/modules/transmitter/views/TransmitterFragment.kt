@@ -2,12 +2,10 @@ package com.example.urbvanmobiletest.modules.transmitter.views
 
 
 import android.content.Context
-import android.os.Build
-import android.os.Bundle
-import android.os.VibrationEffect
-import android.os.Vibrator
+import android.os.*
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 
@@ -68,7 +66,7 @@ class TransmitterFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMapClick
         mMap?.setOnMapClickListener(this)
 
         val myPlace = LatLng(DEFAULT_LATITUDE, DEFAULT_LONGITUDE)
-        map?.moveCamera(CameraUpdateFactory.newLatLngZoom(myPlace,DEFAULT_ZOOM))
+        mMap?.moveCamera(CameraUpdateFactory.newLatLngZoom(myPlace,DEFAULT_ZOOM))
     }
 
     override fun onMapClick(position: LatLng?) {
@@ -89,7 +87,7 @@ class TransmitterFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMapClick
         }
     }
 
-    fun Fragment.vibratePhone() {
+    private fun Fragment.vibratePhone() {
         val vibrator = context?.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
         if (Build.VERSION.SDK_INT >= 26) {
             vibrator.vibrate(VibrationEffect.createOneShot(200, VibrationEffect.DEFAULT_AMPLITUDE))

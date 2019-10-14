@@ -1,7 +1,11 @@
 package com.example.urbvanmobiletest.modules.transmitter.views
 
 
+import android.content.Context
+import android.os.Build
 import android.os.Bundle
+import android.os.VibrationEffect
+import android.os.Vibrator
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -74,6 +78,7 @@ class TransmitterFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMapClick
     }
 
     override fun onMapLongClick(position: LatLng?) {
+        vibratePhone()
         val location = MapLocation(UUID.randomUUID().toString(),position?.latitude.toString(),position?.longitude.toString())
         presenter.sendLocationToDataBase(location)
     }
@@ -81,6 +86,15 @@ class TransmitterFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMapClick
     override fun onLocationSended() {
         context?.let {
             AlertUtils.makeToast(it,getString(R.string.location_sended))
+        }
+    }
+
+    fun Fragment.vibratePhone() {
+        val vibrator = context?.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+        if (Build.VERSION.SDK_INT >= 26) {
+            vibrator.vibrate(VibrationEffect.createOneShot(200, VibrationEffect.DEFAULT_AMPLITUDE))
+        } else {
+            vibrator.vibrate(200)
         }
     }
 }

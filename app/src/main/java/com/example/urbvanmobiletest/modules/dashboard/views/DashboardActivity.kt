@@ -5,12 +5,11 @@ import android.os.Bundle
 import androidx.viewpager.widget.ViewPager
 import com.example.urbvanmobiletest.R
 import com.example.urbvanmobiletest.modules.dashboard.adapters.ViewPagerAdapter
-import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.tabs.TabLayout
 
 class DashboardActivity : AppCompatActivity() {
 
-    private lateinit var toolbar: MaterialToolbar
+    private lateinit var toolbar: androidx.appcompat.widget.Toolbar
 
     private lateinit var pager: ViewPager
     private lateinit var adapter: ViewPagerAdapter

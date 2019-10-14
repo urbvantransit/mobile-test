@@ -8,13 +8,20 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.example.urbvanmobiletest.R
+import com.example.urbvanmobiletest.models.MapLocation
+import com.example.urbvanmobiletest.modules.receiver.presenter.ReceiverPresenter
+import com.example.urbvanmobiletest.utils.AlertUtils
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.MapView
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.Marker
+import com.google.android.gms.maps.model.MarkerOptions
 
-class ReceiverFragment : Fragment(), OnMapReadyCallback {
+class ReceiverFragment : Fragment(), OnMapReadyCallback, ReceiverPresenter.OnEventInReceiver {
+
+    private lateinit var presenter: ReceiverPresenter
 
     private lateinit var mapView: MapView
     private var mMap: GoogleMap? = null
@@ -27,13 +34,17 @@ class ReceiverFragment : Fragment(), OnMapReadyCallback {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?): View? {
 
-        val view =inflater.inflate(R.layout.fragment_receiver, container, false)
+        val view = inflater.inflate(R.layout.fragment_receiver, container, false)
 
         return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        presenter = ReceiverPresenter(this, this)
+
+        presenter.initFirebase()
+
         initMap()
     }
 
@@ -49,5 +60,15 @@ class ReceiverFragment : Fragment(), OnMapReadyCallback {
         mMap = map
         val myPlace = LatLng(DEFAULT_LATITUDE, DEFAULT_LONGITUDE)
         map?.moveCamera(CameraUpdateFactory.newLatLngZoom(myPlace,DEFAULT_ZOOM))
+    }
+
+    override fun onLocationGetted(location: MapLocation) {
+        val latLng = LatLng(location.latitude.toDouble(),location.longitude.toDouble())
+        val markerOptions = MarkerOptions().position(latLng)
+        mMap?.addMarker(markerOptions)
+    }
+
+    override fun onError() {
+        context?.let { AlertUtils.makeToast(it,it.getString(R.string.error_message)) }
     }
 }

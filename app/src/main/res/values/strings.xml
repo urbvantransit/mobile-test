@@ -6,4 +6,5 @@
     <string name="show">Mostrar</string>
     <string name="send">Enviar</string>
     <string name="location_sended">La ubicación ha sido enviada</string>
+    <string name="error_message">Ocurrió un error inesperado</string>
 </resources>

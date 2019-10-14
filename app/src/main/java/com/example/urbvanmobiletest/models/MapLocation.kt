@@ -5,6 +5,8 @@ class MapLocation {
     var latitude = ""
     var longitude = ""
 
+    constructor()
+
     constructor(id: String, latitude: String, longitude: String) {
         this.id = id
         this.latitude = latitude

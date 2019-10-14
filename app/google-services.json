@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "595639630525",
+    "firebase_url": "https://urbvan-test-d7ae6.firebaseio.com",
+    "project_id": "urbvan-test-d7ae6",
+    "storage_bucket": "urbvan-test-d7ae6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:595639630525:android:3c174caeca2e136d1e95d4",
+        "android_client_info": {
+          "package_name": "com.example.urbvanmobiletest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "595639630525-25fhu78qnk3108fngcicrhee7fcvedj7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.urbvanmobiletest",
+            "certificate_hash": "53705739a5a6e211c94ca0a49a4058985bc7e6c0"
+          }
+        },
+        {
+          "client_id": "595639630525-te86eh8dvhf7cvgafh6g4kcd2hs5bgn7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVkMXwwR9VANT4-Wlb3Bsljx4sEVUDtVM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "595639630525-te86eh8dvhf7cvgafh6g4kcd2hs5bgn7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

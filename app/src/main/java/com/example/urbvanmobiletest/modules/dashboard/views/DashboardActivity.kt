@@ -43,6 +43,5 @@ class DashboardActivity : AppCompatActivity() {
         adapter = ViewPagerAdapter(fm)
         pager.adapter = adapter
 
-        tabs.setupWithViewPager(pager)
     }
 }

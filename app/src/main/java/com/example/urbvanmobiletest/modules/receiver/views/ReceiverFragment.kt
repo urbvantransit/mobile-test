@@ -44,6 +44,7 @@ class ReceiverFragment : Fragment(), OnMapReadyCallback, ReceiverPresenter.OnEve
         presenter = ReceiverPresenter(this, this)
 
         presenter.initFirebase()
+        presenter.initTimeCounter()
 
         initMap()
     }
@@ -62,10 +63,14 @@ class ReceiverFragment : Fragment(), OnMapReadyCallback, ReceiverPresenter.OnEve
         map?.moveCamera(CameraUpdateFactory.newLatLngZoom(myPlace,DEFAULT_ZOOM))
     }
 
-    override fun onLocationGetted(location: MapLocation) {
-        val latLng = LatLng(location.latitude.toDouble(),location.longitude.toDouble())
-        val markerOptions = MarkerOptions().position(latLng)
-        mMap?.addMarker(markerOptions)
+    override fun onChangeInLocations(locations: ArrayList<MapLocation>) {
+        mMap?.clear()
+
+        for(location in locations){
+            val latLng = LatLng(location.latitude.toDouble(),location.longitude.toDouble())
+            val markerOptions = MarkerOptions().position(latLng)
+            mMap?.addMarker(markerOptions)
+        }
     }
 
     override fun onError() {

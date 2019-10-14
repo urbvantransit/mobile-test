@@ -4,6 +4,7 @@ class MapLocation {
     var id = ""
     var latitude = ""
     var longitude = ""
+    var timeLeft = 10000
 
     constructor()
 

@@ -35,7 +35,7 @@ class DashboardActivity : AppCompatActivity() {
 
     private fun initToolbar(){
         setSupportActionBar(toolbar)
-        supportActionBar?.title = "Sender"
+        supportActionBar?.title = getString(R.string.toolbar_title)
     }
 
     private fun initViewPager(){

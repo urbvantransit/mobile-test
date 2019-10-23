@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Mobile-test</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="home_tab__title_transmitter">Emisor</string>
+    <string name="home_tab__title_receiverr">Receptor</string>
+
 </resources>

@@ -1,0 +1,51 @@
+{
+  "project_info": {
+    "project_number": "874193764794",
+    "firebase_url": "https://urbvantest.firebaseio.com",
+    "project_id": "urbvantest",
+    "storage_bucket": "urbvantest.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:874193764794:android:d78f6e2ca7c41f24989d83",
+        "android_client_info": {
+          "package_name": "com.omargtz.mobiletest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "874193764794-3k243t09hhnfk05rufg8ku4c7gda5uk3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.omargtz.mobiletest",
+            "certificate_hash": "000458eca3d42f69781225ddbaf34c76548273df"
+          }
+        },
+        {
+          "client_id": "874193764794-h9uf2htm4hb3aqu40qc9iiikn7kr81vi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9l-G1T5QcDKaIuhOpJkjijZZJVkrVoSY"
+        },
+        {
+          "current_key": "AIzaSyB7wn5al8vFkYyKWS1ajXR6GdCILY70vms"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "874193764794-h9uf2htm4hb3aqu40qc9iiikn7kr81vi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

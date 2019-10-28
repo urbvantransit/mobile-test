@@ -1,4 +1,4 @@
-package com.omargtz.mobiletest.home.view.fragment
+package com.omargtz.mobiletest.location.view.fragment
 
 
 import android.os.Bundle
@@ -9,15 +9,17 @@ import android.view.ViewGroup
 
 import com.omargtz.mobiletest.R
 
-
-class ReceiverFragment : Fragment() {
+/**
+ * A simple [Fragment] subclass.
+ */
+class TransmitterFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_receiver, container, false)
+        return inflater.inflate(R.layout.fragment_transmitter, container, false)
     }
 
 

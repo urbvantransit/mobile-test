@@ -1,4 +1,4 @@
-package com.omargtz.mobiletest.home.view
+package com.omargtz.mobiletest.location.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -6,7 +6,7 @@ import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
 import com.omargtz.mobiletest.R
 
-class HomeActivity : AppCompatActivity() {
+class LocationActivity : AppCompatActivity() {
 
     private lateinit var toolbar: androidx.appcompat.widget.Toolbar
     private lateinit var pager: ViewPager
@@ -14,7 +14,7 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home)
+        setContentView(R.layout.activity_location)
     }
 
 

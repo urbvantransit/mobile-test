@@ -1,10 +1,10 @@
-package com.omargtz.mobiletest.home.view.adapter
+package com.omargtz.mobiletest.location.view.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import com.omargtz.mobiletest.home.view.fragment.ReceiverFragment
-import com.omargtz.mobiletest.home.view.fragment.TransmitterFragment
+import com.omargtz.mobiletest.location.view.fragment.ReceiverFragment
+import com.omargtz.mobiletest.location.view.fragment.TransmitterFragment
 
 
 class ViewPagerAdapter(manager: FragmentManager, titles: List<String>): FragmentPagerAdapter(manager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT){

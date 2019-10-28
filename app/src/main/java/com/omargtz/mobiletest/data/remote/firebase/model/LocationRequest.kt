@@ -1,7 +1,9 @@
 package com.omargtz.mobiletest.data.remote.firebase.model
 
 data class LocationRequest(
-    var lat: Double? = 0.0,
-    var lng: Double?= 0.0,
-    var direction: String? = "",
-    var dateTime: Long = 0)
+    val lat: Double? = 0.0,
+    val lng: Double?= 0.0,
+    val direction: String? = "",
+    val dateTime: Long = 0){
+
+}

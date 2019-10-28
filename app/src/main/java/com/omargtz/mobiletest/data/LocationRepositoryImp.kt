@@ -1,7 +1,7 @@
 package com.omargtz.mobiletest.data
 
 import com.omargtz.mobiletest.data.remote.firebase.FirebaseDbDataSource
-import com.omargtz.mobiletest.data.remote.firebase.model.LocationRequest
+import com.omargtz.mobiletest.data.remote.firebase.model.LocationDTO
 import com.omargtz.mobiletest.data.remote.geocoding.GeocodingDataSource
 
 class LocationRepositoryImp(val geocodingDataSource: GeocodingDataSource, val firebaseDatasource: FirebaseDbDataSource ):LocationRepository{
@@ -14,8 +14,8 @@ class LocationRepositoryImp(val geocodingDataSource: GeocodingDataSource, val fi
         geocodingDataSource.getDirection(lat,lng,onGeocodingLocation)
     }
 
-    override fun sendLocation(locationRequest: LocationRequest) {
-        firebaseDatasource.sendLocation(locationRequest)
+    override fun sendLocation(locationDTO: LocationDTO) {
+        firebaseDatasource.sendLocation(locationDTO)
     }
 }
 

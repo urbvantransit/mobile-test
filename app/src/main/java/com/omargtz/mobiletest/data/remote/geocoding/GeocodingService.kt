@@ -12,7 +12,7 @@ object GeocodingService {
 
     val geocodingServiceProvider: GoogleGeocodingApi
     get() = Retrofit.Builder()
-        .baseUrl("https://api.github.com/")
+        .baseUrl("https://maps.googleapis.com/maps/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
         .create(GoogleGeocodingApi::class.java)

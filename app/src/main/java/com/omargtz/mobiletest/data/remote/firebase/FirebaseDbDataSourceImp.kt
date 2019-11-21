@@ -14,9 +14,9 @@ class FirebaseDbDataSourceImp(val dbReference: DatabaseReference) :FirebaseDbDat
             override fun onCancelled(data: DatabaseError) {
                 onGetLocations.onError()
             }
-            override fun onDataChange(data: DataSnapshot) {
+            override fun onDataChange(dataSnap: DataSnapshot) {
                 val locations = ArrayList<LocationDTO>()
-                for (data in data.children){
+                for (data in dataSnap.children){
                     val location = data.getValue(LocationDTO::class.java)
                     locations.add(location!!)
                 }

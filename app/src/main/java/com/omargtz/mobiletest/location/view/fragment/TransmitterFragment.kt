@@ -69,7 +69,7 @@ class TransmitterFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnCameraId
         mapView = view.findViewById(R.id.transmiter_map_view)
         btnSendLocation = view.findViewById(R.id.btn_send_location);
 
-        btnSendLocation.setOnClickListener(){v->
+        btnSendLocation.setOnClickListener(){_->
             val address =  viewmodel.mDirection.value!!.results!!.get(0).formattedAddress!!
             viewmodel.sendLocation(getLatLngMarker().latitude,getLatLngMarker().longitude,address)
             Toast.makeText(activity,"Ubicación enviada",Toast.LENGTH_SHORT).show()

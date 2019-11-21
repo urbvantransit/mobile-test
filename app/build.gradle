@@ -49,8 +49,15 @@ dependencies {
 
     //Life components
     implementation "androidx.lifecycle:lifecycle-extensions:$rootProject.archLifecycleVersion"
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     annotationProcessor "androidx.lifecycle:lifecycle-compiler:$rootProject.archLifecycleVersion"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
+    //rx
+    implementation "io.reactivex.rxjava2:rxandroid:$rootProject.rxAndroid"
+    implementation "io.reactivex.rxjava2:rxjava:$rootProject.rxJava"
+
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$rootProject.adapterRxjava2"
+
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'

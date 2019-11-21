@@ -1,16 +1,10 @@
 package com.omargtz.mobiletest.data.remote.geocoding
 
 import com.omargtz.mobiletest.data.remote.model.GeocodingResponse
+import io.reactivex.Observable
 
 interface GeocodingDataSource {
 
-
-    interface OnGeocodingLocation {
-        fun onSucess(direction: GeocodingResponse)
-        fun onError(error: String)
-        fun onErrorConnection()
-    }
-
-    fun getDirection(lat: Double, lng: Double, onGeocodingLocation: OnGeocodingLocation)
+    fun getDirection(lat: Double, lng: Double): Observable<GeocodingResponse>
 
 }

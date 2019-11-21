@@ -25,7 +25,7 @@ class LocationsAdapter(var locations: List<LocationDTO>,val locationViewModel:Lo
     override fun onBindViewHolder(holder: LocationViewHolder, position: Int) {
         holder.tvDirection?.text = locations.get(holder.adapterPosition).direction
         holder.itemView.setOnClickListener(){
-            view -> locationViewModel.clickItemLocation(locations.get(holder.adapterPosition))
+            _ -> locationViewModel.clickItemLocation(locations.get(holder.adapterPosition))
         }
     }
     public fun updateList(newlocations: List<LocationDTO>){

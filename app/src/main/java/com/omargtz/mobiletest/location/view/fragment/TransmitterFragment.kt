@@ -2,6 +2,7 @@ package com.omargtz.mobiletest.location.view.fragment
 
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.content.pm.PackageManager
 import android.location.Location
 import android.os.Bundle
@@ -135,6 +136,7 @@ class TransmitterFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnCameraId
         return mMap!!.cameraPosition.target
     }
 
+    @SuppressLint("MissingPermission")
     private fun initMap(){
         mMap!!.isMyLocationEnabled = true
         mMap!!.uiSettings.isMyLocationButtonEnabled = true;
@@ -147,6 +149,7 @@ class TransmitterFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnCameraId
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(context!!)
     }
 
+    @SuppressLint("MissingPermission")
     private fun getLastLocation(){
         fusedLocationClient.lastLocation.addOnSuccessListener { location : Location ->
             moveCamera(location)
@@ -184,22 +187,20 @@ class TransmitterFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnCameraId
     }
 
     private fun subscribeloadDirectionErrorEvent(){
-        viewmodel.directionErrorEvent.observe(this, object : Observer<Event<String>>{
-            override fun onChanged(event: Event<String>?) {
+        viewmodel.directionErrorEvent.observe(this,
+            Observer<Event<String>> { event ->
                 if(event!!.getContentIfNotHandled()!=null){
                     Log.e("Direction","Error")
                 }
-            }
-        })
+            })
     }
 
     private fun subscribeloadDirectionConnectionErrorEvent(){
-        viewmodel.directionErrorConnectionEvent.observe(this, object : Observer<Event<String>>{
-            override fun onChanged(event: Event<String>?) {
+        viewmodel.directionErrorConnectionEvent.observe(this,
+            Observer<Event<String>> { event ->
                 if(event!!.getContentIfNotHandled()!=null){
                     Log.e("Direction","ErrorConnection")
                 }
-            }
-        })
+            })
     }
 }

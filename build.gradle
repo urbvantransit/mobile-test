@@ -30,7 +30,7 @@ task clean(type: Delete) {
 
 ext {
 
-    archLifecycleVersion = '2.2.0-alpha01'
+    archLifecycleVersion = '2.2.0'
     retrofit_version = "2.5.0"
     google_play_version = "17.0.0"
     lottieVersion = "3.1.0"

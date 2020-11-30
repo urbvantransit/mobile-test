@@ -12,18 +12,15 @@ import com.google.android.material.tabs.TabLayout
 import com.omargtz.mobiletest.R
 import com.omargtz.mobiletest.app.App
 import com.omargtz.mobiletest.location.view.adapter.ViewPagerAdapter
+import com.omargtz.mobiletest.location.view.fragment.TransmitterFragment
 import com.omargtz.mobiletest.location.viewmodel.LocationViewModel
 import com.omargtz.mobiletest.utils.ViewModelFactory
 
 class LocationActivity : AppCompatActivity() {
 
     private lateinit var toolbar: androidx.appcompat.widget.Toolbar
-    private lateinit var pager: ViewPager
-    private lateinit var tabs: TabLayout
     private lateinit var viewModel: LocationViewModel
     private lateinit var pagerAdapter: ViewPagerAdapter
-
-
 
     val Context.app: App
         get() = applicationContext as App
@@ -35,14 +32,12 @@ class LocationActivity : AppCompatActivity() {
         setViewModel()
         initViews()
         initToolbar()
-        setupViewPager()
-        setupTabs()
+        //setupMap()
     }
 
     private fun initViews(){
         toolbar = findViewById(R.id.home_toolbar)
-        pager = findViewById(R.id.home_pager)
-        tabs = findViewById(R.id.home_tabs)
+
     }
 
     private fun initToolbar(){
@@ -57,20 +52,12 @@ class LocationActivity : AppCompatActivity() {
 
     }
 
-    private fun setupViewPager(){
-        val fm = supportFragmentManager
-        val titles = listOf<String>("Enviar ubicacón","Ubicaciones")
-        pagerAdapter = ViewPagerAdapter(fm,titles)
-        pager.adapter = pagerAdapter
-    }
 
 
-    private fun setupTabs(){
-        tabs.addTab(tabs.newTab().setText("Enviar ubicación"))
-        tabs.addTab(tabs.newTab().setText("Recibir ubicación"))
-        tabs.tabMode =TabLayout.MODE_FIXED;
-        tabs.tabGravity = TabLayout.GRAVITY_CENTER
-        tabs.setupWithViewPager(pager)
+    private fun setupMap(){
+        supportFragmentManager.beginTransaction()
+            .add(R.id.fragment_content, TransmitterFragment())
+            .commit()
     }
 
 

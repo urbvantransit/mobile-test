@@ -1,14 +1,16 @@
 package com.omargtz.mobiletest.location.viewmodel
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.*
 import com.omargtz.mobiletest.data.LocationRepository
 import com.omargtz.mobiletest.data.remote.firebase.FirebaseDbDataSource
 import com.omargtz.mobiletest.data.remote.firebase.model.LocationDTO
 import com.omargtz.mobiletest.data.remote.geocoding.GeocodingDataSource
 import com.omargtz.mobiletest.data.remote.model.GeocodingResponse
 import com.omargtz.mobiletest.utils.Event
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.disposables.Disposable
+import io.reactivex.schedulers.Schedulers
 import kotlin.math.E
 
 class LocationViewModel(val locationRepository: LocationRepository): ViewModel() {
@@ -18,7 +20,6 @@ class LocationViewModel(val locationRepository: LocationRepository): ViewModel()
 
 
     private val _locationErrorConnectionEvent = MutableLiveData<Event<String>>()
-    val locationErrorConnectionEvent: LiveData<Event<String>> = _locationErrorConnectionEvent
 
     private val _locationErrorEvent = MutableLiveData<Event<String>>()
     val locationErrorEvent: LiveData<Event<String>> = _locationErrorEvent
@@ -34,6 +35,9 @@ class LocationViewModel(val locationRepository: LocationRepository): ViewModel()
 
     private val _clickLocationEvent = MutableLiveData<Event<LocationDTO>>()
     val clickLocatinEvent : LiveData<Event<LocationDTO>> = _clickLocationEvent
+
+    private val subscriptions = CompositeDisposable()
+
 
     public fun clickItemLocation(location: LocationDTO){
         _clickLocationEvent.value = Event(location)
@@ -61,21 +65,39 @@ class LocationViewModel(val locationRepository: LocationRepository): ViewModel()
         })
     }
 
-    fun loadDirection(lat:Double,lng: Double){
-        locationRepository.loadDirection(lat,lng,object : GeocodingDataSource.OnGeocodingLocation{
-            override fun onSucess(direction: GeocodingResponse) {
-                _mDirection.value = direction
-            }
+    fun loadDirection(lat:Double,lng: Double) {
+       val disposable = locationRepository.loadDirection(lat,lng)
+            .subscribeOn(Schedulers.io())
+           .observeOn(AndroidSchedulers.mainThread())
+           .doOnSubscribe {
 
-            override fun onError(error: String) {
-                _locationErrorEvent.value = Event("Error al obtener dirección")
-            }
+           }
+           .doOnTerminate {
 
-            override fun onErrorConnection() {
-                _locationErrorConnectionEvent.value = Event("Error de conexión")
-            }
+           }
+           .subscribe ({
+               _mDirection.value = it
+           }, {
+               _locationErrorEvent.value = Event("Error al obtener dirección")
+           })
 
-        })
-
+        subscribe(disposable)
     }
+
+    fun subscribe(disposable: Disposable): Disposable {
+        subscriptions.add(disposable)
+        return disposable
+    }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+    fun dispose() {
+        subscriptions.clear()
+    }
+
+    override fun onCleared() {
+        dispose()
+        super.onCleared()
+    }
+
+
 }

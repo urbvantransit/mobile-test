@@ -1,0 +1,55 @@
+<androidx.cardview.widget.CardView android:id="@+id/card_content_location_direction"
+        android:layout_width="300dp"
+        android:layout_height="@dimen/card_height"
+        android:elevation="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="@dimen/margin_horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardCornerRadius="15dp"
+
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/item_animation_search_location"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginEnd="@dimen/margin_horizontal"
+                app:lottie_rawRes="@raw/searcha_location"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                android:layout_marginStart="@dimen/margin_horizontal"
+                app:layout_constraintTop_toTopOf="@id/item_tv_direction"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="@id/item_tv_direction"
+                app:layout_constraintEnd_toStartOf="@+id/item_tv_direction"
+                />
+
+        <TextView
+                android:id="@+id/item_tv_direction"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/btn_text_size"
+                android:textStyle="normal"
+                android:layout_margin="@dimen/margin_horizontal"
+                android:textColor="@color/textHightEmphasis"
+                tools:text="CDMX, 064000, SANTA MARIA LA RIBERA"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/item_animation_search_location"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.cardview.widget.CardView>
